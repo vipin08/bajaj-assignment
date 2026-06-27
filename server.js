@@ -1,13 +1,15 @@
+"use strict"
+
 const path = require("path")
 const express = require("express")
 const cors = require("cors")
 const { processBfhl, buildUserId } = require("./bfhl")
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 app.use(cors())
-app.use(express.json())
+app.use(express.json({ limit: "1mb" }))
 app.use(express.static(path.join(__dirname, "public")))
 
 app.post("/bfhl", (req, res) => {
@@ -29,6 +31,15 @@ app.get("/bfhl", (_req, res) => {
 
 app.get("/health", (_req, res) => res.status(200).json({ status: "ok" }))
 
+app.get("/download", (_req, res) => {
+  const zipPath = path.join(__dirname, "download", "bfhl-fullstack-test.zip")
+  res.download(zipPath, "bfhl-fullstack-test.zip", (err) => {
+    if (err && !res.headersSent) {
+      res.status(404).json({ is_success: false, error: "Download not available" })
+    }
+  })
+})
+
 app.get("/", (_req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"))
 })
@@ -41,7 +52,7 @@ app.use((req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Server started on http://localhost:${PORT}`)
+  console.log(`Server Started on http://localhost:${PORT}`)
 })
 
 module.exports = app
