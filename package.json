@@ -1,0 +1,25 @@
+{
+  "name": "bfhl-fullstack-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chitkara Full Stack Test - POST /bfhl REST API with a premium frontend (Node + Express, vanilla HTML/CSS/JS)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "bfhl",
+    "express",
+    "node",
+    "rest-api",
+    "chitkara"
+  ],
+  "author": "Vipin Sohal",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.2",
+    "nodemon": "^3.1.14"
+  }
+}
