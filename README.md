@@ -1,6 +1,6 @@
 # BFHL — Full Stack Test
 
-A REST API (`POST /bfhl`) with a premium frontend, built with **Node + Express** and **vanilla HTML/CSS/JS** only.
+A REST API (`POST /bfhl`) built with **Node + Express** and **vanilla HTML/CSS/JS** only.
 
 ## Run locally
 
@@ -58,5 +58,3 @@ server.js        Express server (routes + static frontend + CORS)
 bfhl.js          Core processing logic
 public/          Frontend (index.html, styles.css, app.js)
 ```
-
-Author: Vipin Sohal · 2311981589
